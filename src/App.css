@@ -1,38 +1,186 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
 .App {
-  text-align: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 28px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+h2 {
+    text-align: center;
+    color: #333;
+    margin: 20px 0;
+    font-size: 24px;
 }
 
-.App-link {
-  color: #61dafb;
+.upload-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.upload-area {
+    border: 3px dashed #ddd;
+    border-radius: 15px;
+    padding: 40px;
+    text-align: center;
+    transition: all 0.3s;
+    cursor: pointer;
 }
+
+    .upload-area:hover {
+        border-color: #667eea;
+        background: #f8f9ff;
+    }
+
+.file-input {
+    display: none;
+}
+
+.upload-label {
+    cursor: pointer;
+}
+
+.upload-icon {
+    font-size: 60px;
+    margin-bottom: 15px;
+}
+
+.file-name {
+    color: #333;
+    font-size: 16px;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.upload-hint {
+    color: #999;
+    font-size: 14px;
+}
+
+.error-message {
+    background: #fee;
+    color: #c33;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.upload-button {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+    .upload-button:hover:not(:disabled) {
+        background: #5568d3;
+        transform: translateY(-2px);
+    }
+
+    .upload-button:disabled {
+        background: #ccc;
+        cursor: not-allowed;
+    }
+
+.success-section {
+    text-align: center;
+}
+
+.success-icon {
+    font-size: 80px;
+    margin-bottom: 10px;
+}
+
+.link-box {
+    background: #f5f5f5;
+    padding: 20px;
+    border-radius: 12px;
+    margin: 20px 0;
+}
+
+.link-label {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.link-display {
+    background: white;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    word-break: break-all;
+    font-size: 13px;
+    color: #333;
+    margin-bottom: 12px;
+    text-align: left;
+}
+
+.copy-button {
+    background: #e0e0e0;
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s;
+}
+
+    .copy-button:hover {
+        background: #d0d0d0;
+    }
+
+.reset-button {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s;
+}
+
+    .reset-button:hover {
+        background: #5568d3;
+    }
