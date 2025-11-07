@@ -55,12 +55,23 @@ function App() {
     setFile(null);
     setShareLink('');
     setError('');
-  };
+    };
+   const shareViaEmail = () => {
+        const subject = encodeURIComponent('PDF 檔案分享');
+        const body = encodeURIComponent(`我想與您分享這個 PDF 檔案：\n\n${shareLink}`);
+        window.open(`mailto:?subject=${subject}&body=${body}`, '_blank');
+    };
+
+   const shareViaWhatsApp = () => {
+        const text = encodeURIComponent(`查看這個 PDF 檔案：${shareLink}`);
+        window.open(`https://wa.me/?text=${text}`, '_blank');
+    };
 
   return (
     <div className="App">
       <div className="container">
-        <h1>PDF 分享平台</h1>
+              <h1>PDF Cloud</h1>
+                <h2>Upload your PDF and make it to a link</h2>
 
         {!shareLink ? (
           <div className="upload-section">
@@ -75,9 +86,9 @@ function App() {
               <label htmlFor="file-upload" className="upload-label">
                 <div className="upload-icon">📤</div>
                 <p className="file-name">
-                  {file ? file.name : '點擊選擇 PDF 檔案'}
+                  {file ? file.name : 'Select your PDF here, < 10MB'}
                 </p>
-                <p className="upload-hint">支援 PDF 格式</p>
+                <p className="upload-hint"> PDF ONLY</p>
               </label>
             </div>
 
@@ -105,7 +116,41 @@ function App() {
               <div className="link-display">{shareLink}</div>
               <button onClick={copyToClipboard} className="copy-button">
                 複製連結
-              </button>
+                              </button>
+                              <div style={{ marginTop: '20px' }}>
+                                  <p style={{ textAlign: 'center', color: '#666', fontSize: '14px', marginBottom: '12px', fontWeight: '500' }}>
+                                      分享到：
+                                  </p>
+
+                                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+                                      <button onClick={shareViaWhatsApp} style={{
+                                          background: '#25D366',
+                                          color: 'white',
+                                          border: 'none',
+                                          padding: '12px',
+                                          borderRadius: '10px',
+                                          fontSize: '14px',
+                                          fontWeight: '600',
+                                          cursor: 'pointer'
+                                      }}>
+                                          📱 WhatsApp
+                                      </button>
+
+                                      <button onClick={shareViaEmail} style={{
+                                          background: '#0078D4',
+                                          color: 'white',
+                                          border: 'none',
+                                          padding: '12px',
+                                          borderRadius: '10px',
+                                          fontSize: '14px',
+                                          fontWeight: '600',
+                                          cursor: 'pointer'
+                                      }}>
+                                          ✉️ Email
+                                      </button>
+                                  </div>
+                              </div>
+
             </div>
 
             <button onClick={reset} className="reset-button">
